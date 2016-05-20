@@ -1,8 +1,8 @@
-require_relative 'leap_year'
-require_relative 'calculator'
+require_relative 'leap_years/leap_year'
+require_relative 'leap_years/calculator'
 
-module LeapYearCalculator
+module LeapYears
   VERSION = '0.0.1'
 
-  class NoLeapYearError < StandardError; end
+  class NoLeapYearsError < StandardError; end
 end

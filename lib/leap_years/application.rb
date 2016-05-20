@@ -1,6 +1,6 @@
-require_relative 'leap_year_calculator'
+require_relative '../leap_years'
 
-module LeapYearCalculator
+module LeapYears
   module Application
     def self.run
       calc = Calculator.new

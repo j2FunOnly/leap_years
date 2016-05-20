@@ -1,4 +1,4 @@
-module LeapYearCalculator
+module LeapYears
   module LeapYear
     # По данным Вики
     ROMAN_LEAP_YEARS = [
