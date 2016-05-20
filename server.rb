@@ -1,7 +1,7 @@
-require_relative 'leap_year_calculator'
-# require 'sinatra/reloader'
+require_relative 'lib/leap_years'
+require 'sinatra/reloader'
 
-class CalcServer < Sinatra::Base
+class LeapYearsServer < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
@@ -18,17 +18,15 @@ class CalcServer < Sinatra::Base
   private
 
   def leap_years(start_year, end_year)
-    calc = LeapYearCalculator::Calculator.new
-    calc.start = start_year
-    calc.end = end_year
-    @calc_title = calc.to_s
-    @result = calc.leap_years
-    if @result
-      @result = @result.join(', ')
+    @calc_title = "#{start_year} - #{end_year}"
+    case years = LeapYears::Calculator.leap_years(start_year, end_year)
+    when 0
+      @result = "Високосных дат не найдено."
+    when -1
+      @result = "Начальная дата должна быть меньше конечной."
     else
-      @result = 'В указанном промежутке дат високосных годов нет.'
+      @result = years
     end
-  rescue ArgumentError => e
-    @result = e.message
+
   end
 end
