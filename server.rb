@@ -19,14 +19,15 @@ class LeapYearsServer < Sinatra::Base
 
   def leap_years(start_year, end_year)
     @calc_title = "#{start_year} - #{end_year}"
-    case years = LeapYears::Calculator.leap_years(start_year, end_year)
-    when 0
-      @result = "Високосных дат не найдено."
-    when -1
-      @result = "Начальная дата должна быть меньше конечной."
-    else
-      @result = years
-    end
 
+    years = LeapYears::Calculator.leap_years(start_year, end_year)
+    @result = case years
+              when 0
+                "Високосных дат не найдено."
+              when -1
+                "Начальная дата должна быть меньше конечной."
+              else
+                years
+              end
   end
 end

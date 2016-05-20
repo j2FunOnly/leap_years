@@ -1,23 +1,22 @@
 module LeapYears
   module Calculator
-    using LeapYear
+    class << self
+      using LeapYear
+      def leap_years(start_year, end_year)
+        start_year = start_year.to_i
+        end_year = end_year.to_i
 
-    def self.leap_years(start_year, end_year)
-      start_year = start_year.to_i
-      end_year = end_year.to_i
+        return -1 unless start_year < end_year
 
-      unless start_year < end_year
-        return -1
+        result = (start_year..end_year).select { |year| year.leap_year? }
+        result.any? ? result : 0
       end
 
-      result = (start_year..end_year).select { |year| year.leap_year? }
-      result.any? ? result : 0
+      def leap_years!(start_year, end_year)
+        result = leap_years(start_year, end_year)
+        raise NoLeapYearsError if result == 0 || result == -1
+        result
+      end
     end
-
-    def self.leap_years!(start_year, end_year)
-      raise NoLeapYearsError unless (result = leap_years(start_year, end_year)).is_a? Array
-      result
-    end
-
   end
 end

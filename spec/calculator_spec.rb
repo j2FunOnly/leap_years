@@ -10,7 +10,7 @@ RSpec.describe LeapYears::Calculator do
   end
 
   it 'receive String as arguments' do
-    expect(subject.leap_years '2000', '2016').to be_a Array
+    expect(subject.leap_years('2000', '2016')).to be_a Array
   end
 
   it 'raises error by Bang! method if there no leap years found' do
@@ -20,7 +20,7 @@ RSpec.describe LeapYears::Calculator do
   end
 
   it 'return array if there are any leap year' do
-    expect(subject.leap_years 100, 200).to be_a Array
-    expect(subject.leap_years! 100, 200).to be_a Array
+    expect(subject.leap_years(100, 200)).to be_a Array
+    expect(subject.leap_years!(100, 200)).to be_a Array
   end
 end
