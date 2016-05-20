@@ -3,6 +3,9 @@ module LeapYears
     using LeapYear
 
     def self.leap_years(start_year, end_year)
+      start_year = start_year.to_i
+      end_year = end_year.to_i
+
       unless start_year < end_year
         return -1
       end

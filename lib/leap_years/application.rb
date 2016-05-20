@@ -3,23 +3,23 @@ require_relative '../leap_years'
 module LeapYears
   module Application
     def self.run
-      calc = Calculator.new
 
       print 'Введите год начала отчета: '
-      calc.start = gets
+      start_year = gets.to_i
 
       print 'Введите год конца отчета: '
-      calc.end = gets
+      end_year = gets.to_i
 
-      print "\nВисокосные года (#{calc}): "
-      if years = calc.leap_years
-        years.each_slice(10) { |slice| print "\n  #{slice.join(', ')}"}
+      print "\nВисокосные года (#{start_year} - #{end_year}): "
+
+      case years = Calculator.leap_years(start_year, end_year)
+      when 0
+        print "\n Високосных лет не найдено."
+      when -1
+        print "Начальная дата должна быть меньше конечной."
       else
-        print "\n  В указаном промежутке високосных дат нет"
+        years.each_slice(10) { |slice| print "\n  #{slice.join(', ')}"}
       end
-      puts '.'
-    rescue ArgumentError => e
-      puts e
     end
   end
 end

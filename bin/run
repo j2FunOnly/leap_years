@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/application'
+require_relative '../lib/leap_years/application'
 
-LeapYearCalculator::Application.run
+LeapYears::Application.run
