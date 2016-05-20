@@ -4,8 +4,6 @@ $(document).ready( function () {
     format: 'YYYY',
     viewMode: 'years',
   });
-
-  // $('#load_link').on('click', loadLeapYears);
 });
 
 var loadLeapYears = function () {
