@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="page-header">
+      <h1>Високосные года.<small>Пример Sinatra приложения reloader</small></h1>
+    </div>
+  </div>
+  <div class="row">
+    <form class="form" action="/" method="post" id="leap_year_form">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="start_year">Начальный год</label>
+          <input type="text" class="form-control datepicker" name="start_year" placeholder="Начальная дата">
+          <p class="help-block">Введите начальную дату.</p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="end_year">Конечный год</label>
+          <input type="text" class="form-control datepicker" name="end_year" placeholder="Конечная дата">
+          <p class="help-block">Введите конечную дату.</p>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <input type="submit" name="button" class="btn btn-primary" id="submit_btn" value="Рассчитать!">
+      </div>
+    </form>
+    <!-- <a href="#" onclick="loadLeapYears()" id="load_link">Load by Link</a> -->
+  </div>
+  <div class="row">
+      <div class="page-header">
+        <h1>Результаты</h1>
+      </div>
+      <div class="col-lg-12">
+        <div class="well well-sm">
+          <img src="blank.gif" id="loading"/>
+        </div>
+      </div>
+  </div>
+</div>
